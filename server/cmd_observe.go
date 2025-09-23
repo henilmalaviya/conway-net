@@ -49,6 +49,17 @@ func CommandObserveHandler(data gjson.Result, observer *Observer, wc chan<- Outg
 
 	var updateFunc func(event grid.ObserverEvent) = func(event grid.ObserverEvent) {
 		switch e := event.(type) {
+		case grid.SetCellsObserverEvent:
+			cells := e.Data()
+
+			parsedCells := cellSliceToIntSlice(cells)
+
+			wc <- NewOutgoingMessage(CodeObserveEvent, MessageData{
+				"event": e.Type(),
+				"data": map[string][][]int{
+					"cells": parsedCells,
+				},
+			})
 		case grid.SetCellObserverEvent:
 			cell := e.Data()
 

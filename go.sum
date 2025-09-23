@@ -44,6 +44,8 @@ github.com/henilmalaviya/gol v0.12.0 h1:q4bY1SdwdfsjVsczvFJxw+5ts3CRlS1blNRDOZ+0
 github.com/henilmalaviya/gol v0.12.0/go.mod h1:oqyQxzLSqn9mCz2XJI5l1DPC4BMNQvv920rIrws/Jbo=
 github.com/henilmalaviya/gol v0.13.0 h1:+iO3WYzi+7jmhDQH4fm1Ul0tFPMoYIkTNVAnDXxNYT0=
 github.com/henilmalaviya/gol v0.13.0/go.mod h1:oqyQxzLSqn9mCz2XJI5l1DPC4BMNQvv920rIrws/Jbo=
+github.com/henilmalaviya/gol v0.14.0 h1:Gvs4tghhgeotSaU2w/NzWr5D2VQO0lu02HPeyLoD6mI=
+github.com/henilmalaviya/gol v0.14.0/go.mod h1:oqyQxzLSqn9mCz2XJI5l1DPC4BMNQvv920rIrws/Jbo=
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
 github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69Aj6K7nkY=
