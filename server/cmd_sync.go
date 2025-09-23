@@ -22,7 +22,7 @@ func CommandSyncHandler(data gjson.Result, observer *Observer, wc chan<- Outgoin
 	liveCells := gr.GetLiveCellCoordinates()
 	logger.Debug("Syncing grid state", "bounds", bounds.ToNestedArray(), "live_cells_count", len(liveCells))
 
-	wc <- NewOutgoingMessage(CodeSyncOk, MessageData{"cells": liveCells, "bounds": bounds.ToNestedArray()})
+	wc <- NewOutgoingMessage(CodeSyncOk, MessageData{"cells": liveCells, "bounds": bounds.ToNestedArray(), "stats": observer.Manager.GetStats()})
 }
 
 func init() {
