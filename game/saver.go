@@ -41,12 +41,11 @@ func NewSaveManager(manager *Manager) *GameSaver {
 
 func (s *GameSaver) Snapshot() *Snapshot {
 	game := s.manager.GetGame()
-	stats := s.manager.stats.Snapshot()
 
 	return &Snapshot{
 		Version:   1,
 		Timestamp: time.Now(),
-		Stats:     stats.Snapshot(),
+		Stats:     s.manager.GetStats(),
 		Grid:      game.GetGrid().GetLiveCellCoordinates(),
 	}
 }

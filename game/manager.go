@@ -12,44 +12,22 @@ type GameStats struct {
 	Generation int `json:"generation"`
 	BirthCount int `json:"birth_count"`
 	DeathCount int `json:"death_count"`
-
-	mutex sync.Mutex `json:"-"`
 }
 
 func (s *GameStats) IncrementGeneration() {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
 	s.Generation++
 }
 
 func (s *GameStats) IncrementBirths(count int) {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
 	s.BirthCount += count
 }
 
 func (s *GameStats) IncrementDeaths(count int) {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
 	s.DeathCount += count
 }
 
-func (s *GameStats) Snapshot() GameStats {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
-	return GameStats{
-		Generation: s.Generation,
-		BirthCount: s.BirthCount,
-		DeathCount: s.DeathCount,
-	}
-}
-
 func (s *GameStats) LoadFromSnapshot(snapshot *GameStats) {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
-	s.Generation = snapshot.Generation
-	s.BirthCount = snapshot.BirthCount
-	s.DeathCount = snapshot.DeathCount
+	*s = *snapshot
 }
 
 /* -------------------------------------------------------------------------- */
@@ -68,7 +46,7 @@ func (m *Manager) GetGame() *gol.Game {
 }
 
 func (m *Manager) GetStats() GameStats {
-	return m.stats.Snapshot()
+	return m.stats
 }
 
 func (m *Manager) Start(tickInterval time.Duration) {
