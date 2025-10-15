@@ -52,10 +52,10 @@ func Get() *Environment {
 }
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		panic("Error loading .env file")
-	}
+	godotenv.Load()
+	// if err != nil {
+	// 	panic("Error loading .env file")
+	// }
 
 	env = &Environment{
 		Port:                 getEnvString("PORT", "8080"),
